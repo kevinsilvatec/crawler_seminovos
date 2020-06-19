@@ -21,7 +21,7 @@ The application has three accessible endpoints: _/_ e _/search_ and _/searchad_
 ## /searchad
 - Method: POST;
 - Função: Return the breakdown of a specific ad from seminovos.com.br;
-*To more info of the endpoints, view the swagger in:  https://crawlerseminovos.herokuapp.com/swagger*
+**To more info of the endpoints, view the swagger in:  https://crawlerseminovos.herokuapp.com/swagger**
 
 
 # Architeture
