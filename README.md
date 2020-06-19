@@ -1,7 +1,7 @@
 # crawler_seminovos
 Application to collect information from ads on Seminovos using the Lumen microframework
 
-# Dependências
+# Dependecies
 - GuzzleHttp: To capture the html of the used car route;
 - DomCrawler: Used to filter the returned html and iterate it;
 - CssSelector: Used in conjunction with DomCrawler it facilitated html filtering via CSS selectors.
