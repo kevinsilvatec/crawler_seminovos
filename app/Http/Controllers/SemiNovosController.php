@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\SeminovosController;
 
 use Laravel\Lumen\Routing\Controller as BaseController;
 
@@ -56,7 +56,7 @@ class SemiNovosController extends BaseController
                 throw new Exception("Error during generate Crawler!");
                 
             }
-            
+
             $adTitle = $crawler->filter('h1[itemprop="name"]')->text();
             $adInfo = $crawler->filter('p[class="desc"]')->text();
             $yearModelAd = $crawler->filter('span[itemprop="modelDate"]')->text();        
