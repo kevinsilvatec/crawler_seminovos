@@ -1,45 +1,51 @@
 # crawler_seminovos
-
-Aplicação para coletar informações de anúncios no Seminovos utilizando o microframework Lumen
+Application to collect information from ads on Seminovos using the Lumen microframework
 
 # Dependências
+- GuzzleHttp: To capture the html of the used car route;
+- DomCrawler: Used to filter the returned html and iterate it;
+- CssSelector: Used in conjunction with DomCrawler it facilitated html filtering via CSS selectors.
 
-- GuzzleHttp: Para capturar o html da rota do seminovos;
-- DomCrawler: Utilizado para filtrar o html retornado e fazer a iteração do mesmo;
-- CssSelector: Utilizado em conjunto com o DomCrawler facilitou a filtragem do html via seletores CSS;
 
-# Rodando a aplicação
-
-Essa aplicação foi desenvolvida em PHP utilizando o microframework lumen. Para rodar a aplicação é necessário ter o PHP (utilizei o xampp com a versão 7.2 do PHP) instalado. O composer foi utilizado para gerenciamento das dependências, por isso, para ver a aplicação funcionando é necessário a instalação do composer e após clonar o código da aplicação executar o comando composer install dentro da pasta da aplicação para instalação das dependências. Para incializar a aplicação é necessário o comando php -S localhost:8000 -t public. Utilizei o postman para fazer o consumo das rotas;
-
-# Rotas
-
-A aplicação possui três rotas acessíveis: / e /search e /searchad
+# Endpoints
+The application has three accessible endpoints: _/_ e _/search_ and _/searchad_
 
 ## /
-- Método: GET;
-- Função: Testar a aplicação;
-- Chamada: -
-- Retorno: jSON.
+- Method: GET;
+- Função: Test the application;
 
 ## /search
-- Método: POST;
-- Função: retornar os anúncios saneados do seminovos;
-- Chamada: {
-            "vehicleType": "carro",
-            "vehicleBrand": "honda",
-            "vehicleModel": "civic",
-            "initialYear": 2000,
-            "finalYear": 2012,
-            "initialPrice": 5000,
-            "finalPrice": 50000
-            }
-- Retorno: jSON.
+- Method: POST;
+- Função: Return the cleaned ads of seminovos.com.br;
 
 ## /searchad
-- Método: POST;
-- Função: retornar o detalhamento de um anúncio específico do seminovos;
-- Chamada: {
-	        "url": "https://seminovos.com.br/honda-civic-lx-1.6-16v-4portas-2000--2682116"
-            }
-- Retorno: jSON.
+- Method: POST;
+- Função: Return the breakdown of a specific ad from seminovos.com.br;
+*To more info of the endpoints, view the swagger in:  https://crawlerseminovos.herokuapp.com/swagger*
+
+
+# Architeture
+The application has the following architeture:
+
+/-- app/\
+/-- bootstrap/\
+/-- database/\
+/-- public/\
+/-- resources/\
+/-- routes/\
+/-- storage/\
+/-- tests/\
+/-- vendor/\
+/-- .env\
+/-- .env.example\
+/-- .gitignore\
+/-- .styleci.yml\
+/-- artisan
+/-- composer.json\
+/-- composer.lock.json\
+/-- Procfile\
+/-- README.md\
+
+
+# Observations and run instructions
+This application was developed in PHP using the lumen microframework. To run the application it is necessary to have PHP (I used xampp with PHP version 7.2) installed. The composer was used to manage the dependencies, so to see the application working it is necessary to install the composer and after cloning the application code, execute the command _composer install_ inside the application folder to install the dependencies. To start the application you need the command _php -S localhost: 8000 -t public_. I used the postman to make the consumption of the routes. The application can also be tested through the link: https://crawlerseminovos.herokuapp.com. There is also swagger documentation for the API. It is available at: https://crawlerseminovos.herokuapp.com/swagger.
