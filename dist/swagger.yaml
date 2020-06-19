@@ -1,0 +1,112 @@
+swagger: "2.0"
+info:
+  description: "This API was created to meet the test proposed by the company AlpesOne. It is available in 'production' at [https://crawlerseminovos.herokuapp.com](https://crawlerseminovos.herokuapp.com)."
+  version: "1.0.0"
+  title: "Swagger Crawler Seminovos API"
+  contact:
+    email: "apiteam@swagger.io"
+  license:
+    name: "MIT"
+    url: "https://opensource.org/licenses/MIT"
+host: "crawlerseminovos.herokuapp.com"
+tags:
+- name: "/"
+  description: "All available endpoints"
+schemes:
+- "https"
+paths:
+  /:
+    get:
+      tags:
+      - "/"
+      summary: "Test API"
+      description: ""
+      produces:
+      - "application/json"
+      responses:
+        "200":
+          description: "This API's working!"
+  /search:
+    post:
+      tags:
+      - "/"
+      summary: "General information about vehicle ads"
+      description: "General information about vehicle advertisements according by the sended object on request's body"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Vehicle ads search information"
+        required: true
+        schema:
+          $ref: "#/definitions/Ads"
+      responses:
+        "200":
+          description: "Search success"
+        "500":
+          description: "Exception"
+  /searchad:
+    post:
+      tags:
+      - "/"
+      summary: "Capture selected information for a specific ad"
+      description: "Capture selected information for a specific ad according by the sended object on request's body"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Ad's URL"
+        required: true
+        schema:
+          $ref: "#/definitions/SpecificAd"
+      responses:
+        "200":
+          description: "Search success"
+        "500":
+          description: "Exception"        
+
+definitions:
+  Ads:
+    type: "object"
+    required:
+    - "vehicleType" 
+    - "vehicleBrand"
+    - "vehicleModel"
+    - "initialYear"
+    - "finalYear"
+    - "initialPrice" 
+    - "finalPrice"
+    properties:
+      vehicleType:
+        type: "string"
+        example: "carro"
+      vehicleBrand:
+        type: "string"
+        example: "honda"
+      vehicleModel:
+        type: "string"
+        example: "civic"
+      initialYear:
+        type: "integer"
+        example: "2000"
+      finalYear:
+        type: "integer"
+        example: "2012"
+      initialPrice:
+        type: "integer"
+        example: "20000"
+      finalPrice:
+        type: "integer"
+        example: "40000"
+  SpecificAd:
+    type: "object"
+    properties:
+      url:
+        type: "string"
+        example: "https://seminovos.com.br/honda-civic-lx-1.6-16v-4portas-2000--2682116"
