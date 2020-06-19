@@ -10,7 +10,7 @@ use App\Helpers\UrlHelper;
 
 use Symfony\Component\CssSelector\CssSelectorConverter;
 
-class SemiNovosController extends BaseController
+class SeminovosController extends BaseController
 {
     public function search(Request $request) {
         try {
